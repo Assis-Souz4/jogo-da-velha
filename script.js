@@ -44,11 +44,19 @@ for (let i = 0; i < boxes.length; i++) {
 }
 
 //evento para saber se é two players ou ia
+<<<<<<< HEAD
 // twoPlayer.addEventListener("click", function () {
 //   setTimeout(() => {
 //     campoDeJogo.classList.remove("hide");
 //   }, 500);
 // });
+=======
+twoPlayer.addEventListener("click", function () {
+  setTimeout(() => {
+    campoDeJogo.classList.remove("hide");
+  }, 500);
+});
+>>>>>>> 00ddae84f7b2558155fb086e81835cdac55031fb
 
 playerContraIa.addEventListener("click", function () {
   setTimeout(() => {
@@ -247,10 +255,17 @@ function declareWinner(winner) {
 
   if (winner == "x") {
     scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+<<<<<<< HEAD
     msg = "Voce Venceu!!";
   } else if (winner == "o") {
     scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
     msg = "I.A Venceu!!";
+=======
+    msg = "Jogador 1 Venceu!!";
+  } else if (winner == "o") {
+    scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
+    msg = "Jogador 2 Venceu!!";
+>>>>>>> 00ddae84f7b2558155fb086e81835cdac55031fb
   } else {
     msg = "Deu Velha...";
   }
