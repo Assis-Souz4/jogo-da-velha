@@ -68,10 +68,10 @@ function checkWinCondition() {
 
     if (b1Child == "x" && b2Child == "x" && b3Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b1Child == "o" && b2Child == "o" && b3Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
   if (
@@ -85,10 +85,10 @@ function checkWinCondition() {
 
     if (b4Child == "x" && b5Child == "x" && b6Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b4Child == "o" && b5Child == "o" && b6Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
@@ -103,10 +103,10 @@ function checkWinCondition() {
 
     if (b7Child == "x" && b8Child == "x" && b9Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b7Child == "o" && b8Child == "o" && b9Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
@@ -122,10 +122,10 @@ function checkWinCondition() {
 
     if (b1Child == "x" && b4Child == "x" && b7Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b1Child == "o" && b4Child == "o" && b7Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
@@ -140,10 +140,10 @@ function checkWinCondition() {
 
     if (b2Child == "x" && b5Child == "x" && b8Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b2Child == "o" && b5Child == "o" && b8Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
@@ -158,10 +158,10 @@ function checkWinCondition() {
 
     if (b3Child == "x" && b6Child == "x" && b9Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b3Child == "o" && b6Child == "o" && b9Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
@@ -177,10 +177,10 @@ function checkWinCondition() {
 
     if (b1Child == "x" && b5Child == "x" && b9Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b1Child == "o" && b5Child == "o" && b9Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
@@ -195,23 +195,62 @@ function checkWinCondition() {
 
     if (b3Child == "x" && b5Child == "x" && b7Child == "x") {
       //x venceu
-      console.log("x");
+      declareWinner('x')
     } else if (b3Child == "o" && b5Child == "o" && b7Child == "o") {
       //o venceu
-      console.log("o");
+      declareWinner('o')
     }
   }
 
   //deu velha
   let cont = 0;
 
-  for(i = 0; i < boxes.length; i++){
-    if(boxes[i].childNodes[0] != undefined){
+  for (i = 0; i < boxes.length; i++) {
+    if (boxes[i].childNodes[0] != undefined) {
       cont++;
     }
   }
 
-  if(cont == 9){
-    console.log('velha');
+  if (cont == 9) {
+    declareWinner('Deu Velha...');
+  }
+}
+
+//limpa o jogo,declara o vencedor e atualiza o placar
+
+function declareWinner(winner){
+
+  let scoreboardX = document.querySelector('#scoreboard-1');
+  let scoreboardO = document.querySelector('#scoreboard-2');
+  let msg = '';
+
+  if (winner == 'x') {
+    scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+    msg = 'Jogador 1 Venceu!!'
+  }else if(winner == 'o'){
+    scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
+    msg = 'Jogador 2 Venceu!!'
+  }else{
+    msg = 'Deu Velha...';
+  }
+
+  //exibir msg
+  messegeText.innerHTML = msg;
+  menssegeContainer.classList.remove('hide');
+
+  //esconde msg
+  setTimeout(() => {
+    menssegeContainer.classList.add('hide');
+  }, 3000);
+
+  //zerar jogadas
+  player1 = 0;
+  player2 = 0;
+
+  //remove x e o
+  let boxesToRemove = document.querySelectorAll('.box div');
+
+  for(let i = 0; i < boxesToRemove.length; i++){
+    boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
   }
 }
