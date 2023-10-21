@@ -10,6 +10,7 @@ body {
 
 h1 {
   font-size: 42px;
+  margin-bottom: 10px;
 }
 
 /* botões */
@@ -17,7 +18,7 @@ h1 {
 #buttons-container button {
   border: none;
   padding: 10px 15px;
-  margin: 0 10px;
+  margin: 20px 10px;
 }
 
 /* jogo */
